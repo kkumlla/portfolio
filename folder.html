@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siti Kumala Salsabila | Portofolio</title>
+  <meta name="description" content="Portofolio Mala, mahasiswa Informatika.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Font Bricolage Grotesque ditambahkan karena folder.css memakainya -->
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Mono:wght@500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="folder.css">
+  <link rel="stylesheet" href="fitur.css">
+</head>
+<body>
+
+<div class="page">
+<main class="stack" id="stack">
+
+  <!-- Kucing hitam: JavaScript memindahkannya ke tab yang sedang dibuka -->
+  <div class="cat-rider">
+    <svg viewBox="0 0 100 40">
+      <title>Klik kucing untuk memutar atau menjeda lagu</title>
+      <path class="cat-tail" d="M16 30 C4 30 2 40 6 48 C8 52 7 55 6 58" fill="none" stroke="#1b1b22" stroke-width="6" stroke-linecap="round"/>
+      <ellipse cx="50" cy="28" rx="40" ry="11" fill="#1b1b22"/>
+      <ellipse cx="70" cy="36" rx="7" ry="3.5" fill="#1b1b22"/>
+      <polygon points="74,18 76,6 85,14" fill="#1b1b22"/>
+      <polygon points="82,14 90,6 93,19" fill="#1b1b22"/>
+      <circle cx="82" cy="24" r="11" fill="#1b1b22"/>
+      <path d="M77 25 q3 3 6 0 M86 25 q3 3 6 0" fill="none" stroke="#8a8aa0" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+    <div class="cat-bubble" id="cat-bubble" role="status"></div>
+    <!-- Bubble yang menetap selama lagu diputar. Bagian teksnya bisa diklik (reaksi acak), tombol jeda untuk menghentikan lagu. -->
+    <div class="cat-listen" id="cat-listen" hidden>
+      <span aria-hidden="true">&#9834; (&#728;&#9661;&#728;) &#9835;</span>
+      <button type="button" class="listen-pause" id="listen-pause" aria-label="Jeda lagu">&#10074;&#10074;</button>
+    </div>
+    <!-- Bubble pemutar lagu: salah satu hasil acak saat kucing diklik -->
+    <div class="cat-music" id="cat-music" role="group" aria-label="Pemutar lagu latar" hidden>
+      <audio id="bgm" loop preload="none" data-src="musik/Sorry, I Like You.mp3"></audio> <!-- GANTI: data-src="musik/namafile.mp3" -->
+      <button type="button" id="bgm-play" class="btn" aria-pressed="false">Putar lagu</button>
+      <label class="bgm-vol">Volume
+        <input type="range" id="bgm-vol" min="0" max="1" step="0.05" value="0.3">
+      </label>
+      <p class="bgm-credit">&#9834; I Love You - burbank.</p>
+    </div>
+  </div>
+
+  <!-- Map 1: judul saja -->
+  <section class="folder f1">
+    <div class="tab" style="--i:0">Kum's</div>
+    <div class="body title">
+      <div class="title-text">
+        <h1>Siti Kumala Salsabila</h1>
+        <p class="lead">Mahasiswa Informatika yang masih menjelajahi bidang yang ingin didalami.</p>
+      </div>
+      <figure class="title-photo">
+        <img src="foto.png" alt="Foto Mala">
+      </figure>
+    </div>
+  </section>
+
+  <!-- Map 2: Tentang -->
+  <section class="folder f2">
+    <button class="tab" style="--i:1" id="t2" aria-expanded="false" aria-controls="p2">Tentang Saya</button>
+    <div class="body">
+      <div class="panel" id="p2" role="region" aria-labelledby="t2"><div class="clip"><div class="inner">
+        <h2>Tentang</h2>
+        <p>Perkenalan saya dengan pemrograman dimulai sejak SMK, saat belajar merangkai komponen dan memprogram Arduino. Sekarang saya melanjutkannya sebagai mahasiswa di Universitas Gunadarma.</p>
+        <h3 class="sub">Skill &amp; Tools</h3>
+        <ul class="chips">
+          <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Arduino</li><li>Python</li><li>Figma</li>
+        </ul>
+      </div></div></div>
+    </div>
+  </section>
+
+  <!-- Map 3: Pengalaman -->
+  <section class="folder f3">
+    <button class="tab" style="--i:2" id="t3" aria-expanded="false" aria-controls="p3">Pengalaman</button>
+    <div class="body">
+      <div class="panel" id="p3" role="region" aria-labelledby="t3"><div class="clip"><div class="inner">
+        <h2>Pengalaman</h2>
+        <div class="item">
+          <h3>Magang, CV Fortuna Argatech</h3>
+          <p class="meta">Maret-Juli, 2023</p>
+          <p>Perusahaan teknologi pembuat perangkat pemantauan jarak jauh berbasis IoT, termasuk perangkat pendeteksi longsor. Saya merakit dan menyiapkan komponen utama perangkat agar siap digunakan, sehingga stoknya tersedia sebelum dibutuhkan. Saya juga membantu merapikan dokumen, mendata relasi perusahaan, dan mengecek persediaan barang.</p>
+        </div>
+      </div></div></div>
+    </div>
+  </section>
+
+  <!-- Map 4: Proyek (ada tombol "Coba" yang membuka frame) -->
+  <section class="folder f4">
+    <button class="tab" style="--i:3" id="t4" aria-expanded="false" aria-controls="p4">Project</button>
+    <div class="body">
+      <div class="panel" id="p4" role="region" aria-labelledby="t4"><div class="clip"><div class="inner">
+        <h2>Project</h2>
+        <div class="item">
+          <h3>Kalkulator Permutasi dan Kombinasi</h3>
+          <p>Aplikasi web untuk menghitung permutasi dan kombinasi, dibuat untuk mata kuliah Statistika.</p>
+          <p class="actions">
+            <a id="link-demo" hidden href="https://kkumlla.github.io/kalkulator-perkom/" target="_blank" rel="noopener"></a>
+            <button type="button" class="btn try-me" data-from="link-demo" data-title="Kalkulator Permutasi dan Kombinasi" data-size="wide">Coba kalkulator</button>
+          </p>
+        </div>
+        <div class="item">
+          <h3>GUI Aplikasi Kesehatan</h3>
+          <p>Project kelompok: Rancangan antarmuka untuk aplikasi kesehatan.</p>
+          <p class="actions">
+            <a id="link-figma" hidden href="https://www.figma.com/proto/33YEDvbBdikq2S3UkQFPJ6/Mydicine?node-id=306-534&amp;t=mpIvxxCi8eLsEjmg-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=0%3A1&amp;starting-point-node-id=229%3A79" target="_blank" rel="noopener"></a>
+            <button type="button" class="btn try-me" data-from="link-figma" data-title="Prototype GUI Aplikasi Kesehatan" data-size="phone">Coba prototype</button>
+          </p>
+        </div>
+        <div class="item">
+          <h3>Pig Dice Game</h3>
+          <p>Project kelompok: Game melempar dadu dengan maksimal 4 orang pemain dimana pemain akan mengumpulkan poin sebanyak-banyaknya, dan jika pemain mendapatkan angka 1 pada dadu maka poin yang dimiliki akan hangus.</p>
+          <p class="actions"><a class="btn" href="https://github.com/kkumlla/Pig-dice-game" target="_blank" rel="noopener">Lihat kode di GitHub</a></p>
+        </div>
+      </div></div></div>
+    </div>
+  </section>
+
+  <!-- Map 5: Sertifikat (sekarang berupa tabel) -->
+  <section class="folder f5">
+    <button class="tab" style="--i:4" id="t5" aria-expanded="false" aria-controls="p5">Sertifikat</button>
+    <div class="body">
+      <div class="panel" id="p5" role="region" aria-labelledby="t5"><div class="clip"><div class="inner">
+        <h2>Sertifikat</h2>
+        <div class="table-wrap">
+          <table class="sert">
+            <caption class="sr-only">Daftar sertifikat</caption>
+            <thead>
+              <tr><th scope="col">Sertifikat</th><th scope="col">Didapat dari</th><th scope="col">Tahun</th><th scope="col">Bukti</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Peserta Lomba CTF (Capture The Flag)</td>
+                <td>Gunadarma Code Week</td>
+                <td>2026</td>
+                <td><a href="#" class="open-lightbox" data-src="sertifikat-1.png">Lihat</a></td>
+              </tr>
+              <tr>
+                <td>Sertifikasi Kompetensi: Perakit Peralatan Elektronik<small>Operator Terlatih Assembly dan Solder 3</small></td>
+                <td>LSP SMKN 4 Jakarta</td>
+                <td>2024</td>
+                <td><a href="#" class="open-lightbox" data-src="sertifikat-4.png,sertifikat-5.png">Lihat</a></td>
+              </tr>
+              <tr>
+                <td>Sertifikasi Kompetensi: Teknik Elektronika<small>Skema Sertifikasi KKNI Level II, Kompetensi Keahlian Teknik Audio Video</small></td>
+                <td>LSP SMKN 4 Jakarta</td>
+                <td>2024</td>
+                <td><a href="#" class="open-lightbox" data-src="sertifikat-2.png,sertifikat-3.png">Lihat</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div></div></div>
+    </div>
+  </section>
+
+  <!-- Map 6: Kontak (ada formulir pesan) -->
+  <section class="folder f6">
+    <button class="tab" style="--i:5" id="t6" aria-expanded="false" aria-controls="p6">Kontak</button>
+    <div class="body">
+      <div class="panel" id="p6" role="region" aria-labelledby="t6"><div class="clip"><div class="inner">
+        <h2>Kontak</h2>
+        <p>Saya masih belajar, dan akan lebih seru kalau belajar bersama-sama. Yuk, saling sapa lewat:</p>
+        <ul class="contact">
+          <li><a href="mailto:kkumlla.229@gmail.com" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li>
+          <li><a href="https://github.com/kkumlla" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+          <li><a href="https://linkedin.com/in/siti-kumala-salsabila-52bb45370" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+          <li class="paw-deco" aria-hidden="true"><i class="fa-solid fa-paw"></i></li>
+        </ul>
+      </div></div></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Formulir: di luar folder. Layar lebar: di kanan. Layar sempit: di bawah tumpukan map. -->
+<aside class="surat" aria-label="Formulir pesan">
+<form id="pesan-form" class="pesan" novalidate>
+          <h3 class="sub">Atau tulis pesan di sini</h3>
+          <label>Nama
+            <input type="text" name="nama" autocomplete="name">
+          </label>
+          <label>Pesan
+            <textarea name="pesan" rows="4" required></textarea>
+          </label>
+          <label class="check">
+            <input type="checkbox" id="mau-balasan"> Balas pesan Saya
+          </label>
+          <label id="email-wrap" hidden>Email
+            <input type="email" id="email-input" name="email" autocomplete="email">
+            <small>Email hanya dipakai untuk membalas pesan ini. Pesan dikirim lewat layanan Formspree</small>
+          </label>
+          <p class="form-status" id="form-status" role="status"></p>
+          <div class="form-actions">
+            <button type="submit" class="btn solid">Kirim</button>
+            <button type="reset" class="btn">Reset</button>
+          </div>
+        </form>
+</aside>
+</div>
+
+<!-- Lightbox sertifikat: cukup SATU di seluruh halaman (id tidak boleh kembar) -->
+<div id="lightbox" class="lightbox" role="dialog" aria-label="Tampilan sertifikat" hidden>
+  <div id="lightbox-content" class="lightbox-content"></div>
+</div>
+
+<!-- Frame: kotak berisi iframe, dibuka lewat tombol "Coba" -->
+<dialog id="frame-dialog" class="frame-dialog">
+  <div class="frame-bar">
+    <span id="frame-title"></span>
+    <button type="button" class="btn frame-close">Tutup</button>
+  </div>
+  <iframe id="frame-iframe" title="Pratinjau proyek" src="about:blank" allowfullscreen></iframe>
+</dialog>
+
+<script src="folder.js"></script>
+<script src="fitur.js"></script>
+</body>
+</html>
